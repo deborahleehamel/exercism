@@ -1,4 +1,5 @@
 class Hamming
+  VERSION = 1
 
   def self.compute(string1, string2)
     raise ArgumentError if string1.length != string2.length
