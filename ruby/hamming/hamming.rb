@@ -1,6 +1,7 @@
 class Hamming
 
   def self.compute(string1, string2)
+    raise ArgumentError if string1.length != string2.length
     hamming_distance = 0
     string1.chars.each_with_index do |base_pair_1, i|
       base_pair_2= string2[i]
