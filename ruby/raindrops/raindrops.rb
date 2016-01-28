@@ -1,4 +1,5 @@
 class Raindrops
+  VERSION = 1
 
   def self.convert(number)
     output = ""
@@ -7,6 +8,9 @@ class Raindrops
     end
     if number % 5 == 0
       output << "Plang"
+    end
+    if number % 7 == 0
+      output << "Plong"
     end
     if output.empty?
       return number.to_s
