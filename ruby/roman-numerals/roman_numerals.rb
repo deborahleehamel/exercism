@@ -21,14 +21,13 @@ class Fixnum
 # convert normal numbers to Roman Numerals
   def to_roman
     n = self
-    roman = []
-    ARABIC.each do |k, v|
+    # roman = []
+    ARABIC.each_with_object([]) do |(k, v), roman |
       while n >= k
         roman << v
         n -= k
       end
-    end
-    roman.join
+    end.join
   end
 end
 
