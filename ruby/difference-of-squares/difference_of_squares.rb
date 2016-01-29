@@ -18,6 +18,11 @@ attr_accessor :numbers
   # numbers.inject(0) {|sum, num| sum + num*num }
   end
 
+  def sum_of_squares
+    (0..@numbers).inject(0) { |sum, n| sum += n**2 }
+  #     return @n * (@n + 1) * (2 * @n + 1) / 6
+  end
+
 
    # Returns the sum of the squares of the first N natural numbers
 
