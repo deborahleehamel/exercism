@@ -2,14 +2,13 @@ class Robot
 attr_reader :name
 
   def initialize
-    @name = generate_name
+    reset
   end
 
   def generate_name
-    name = []
-    2.times { name << [*"A".."Z"].sample }
-    3.times { name << [*0..9].sample }
-    name.join
+    chars = [*"A".."Z"].sample(2)
+    nums = [*0..9].sample(3)
+    (chars << nums).join
   end
 
   def reset
