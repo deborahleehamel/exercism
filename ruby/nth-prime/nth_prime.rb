@@ -1,44 +1,25 @@
 class Prime
   def self.nth(n)
-    validate_input(n)
-    find_primes_to_nth(n)
-    primes[n - 1]
+    if n < 1
+      message = 'Not possible.'
+      fail ArgumentError.new(message)
+    end
+
+    primes = 0
+    i = 1
+    while primes < n
+      i += 1
+      primes += 1 if self.prime?(i)
+    end
+    i
   end
 
-  class << self
-    private
-
-    def validate_input(n)
-      fail(ArgumentError, 'n must be greater than zero') unless n > 0
+  def self.prime?(n)
+    return false if n == 1
+    return true if n == 2
+    (2..Math.sqrt(n).ceil).each do |i|
+      return false if n % i == 0
     end
-
-    def find_primes_to_nth(n)
-      while primes.size < n
-        primes << next_candidate if prime?(next_candidate)
-        @next_candidate += 2
-      end
-    end
-
-    def prime?(number)
-      upper_bound = Math.sqrt(number).floor
-      is_prime = true
-      primes.each do |prime|
-        break if prime > upper_bound
-        break unless is_prime &&= !multiple?(number, prime)
-      end
-      is_prime
-    end
-
-    def primes
-      @primes ||= [2]
-    end
-
-    def next_candidate
-      @next_candidate ||= 3
-    end
-
-    def multiple?(n, divisor)
-      n % divisor == 0
-    end
+    return true
   end
 end
