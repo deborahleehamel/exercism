@@ -3,18 +3,12 @@ class Raindrops
 
   def self.convert(number)
     output = ""
-    if number % 3 == 0
-      output << "Pling"
-    end
-    if number % 5 == 0
-      output << "Plang"
-    end
-    if number % 7 == 0
-      output << "Plong"
-    end
-    if output.empty?
-      return number.to_s
-    end
+
+    output << "Pling" if number % 3 == 0
+    output << "Plang" if number % 5 == 0
+    output << "Plong" if number % 7 == 0
+    return number.to_s if output.empty?
+    
     return output
   end
 end
